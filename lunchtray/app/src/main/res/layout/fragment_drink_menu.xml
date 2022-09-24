@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_drink"
+    tools:context=".ui.order.DrinkMenuFragment">
+
+    <!-- Data binding variables for OrderViewModel and DrinkMenuFragment -->
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.nigerianlunchtray.model.OrderViewModel" />
+        <variable
+            name="drinkMenuFragment"
+            type="com.example.nigerianlunchtray.ui.order.DrinkMenuFragment" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/side_margin"
+            android:paddingEnd="@dimen/side_margin"
+            android:paddingBottom="@dimen/side_margin">
+
+            <LinearLayout
+                android:id="@+id/drink_options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <CheckBox android:id="@+id/apple_juice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:onClick='@{(view) -> viewModel.setDrink(view, "apple_juice")}'
+                    android:text='@{viewModel.menuItems["apple_juice"].name}'
+                    tools:text="Drink 1" />
+
+                <TextView
+                    android:id="@+id/apple_juice_price"
+                    style="@style/Widget.MenuItem.TextView.Info"
+                    android:paddingTop="@dimen/base_margin"
+                    android:text='@{viewModel.menuItems["apple_juice"].getFormattedPrice()}'
+                    tools:text="0.00" />
+
+                <View
+                    style="@style/Widget.NigeriaLunchTray.Divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/apple_juice_price" />
+
+                <CheckBox android:id="@+id/coke"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:onClick='@{(view) -> viewModel.setDrink(view, "coke")}'
+                    android:text='@{viewModel.menuItems["coke"].name}'
+                    tools:text="Drink 2" />
+
+                <TextView
+                    android:id="@+id/coke_price"
+                    style="@style/Widget.MenuItem.TextView.Info"
+                    android:paddingTop="@dimen/base_margin"
+                    android:text='@{viewModel.menuItems["coke"].getFormattedPrice()}'
+                    tools:text="0.00" />
+
+                <View
+                    style="@style/Widget.NigeriaLunchTray.Divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/coke_price" />
+
+                <CheckBox android:id="@+id/fanta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:onClick='@{(view) -> viewModel.setDrink(view, "fanta")}'
+                    android:text='@{viewModel.menuItems["fanta"].name}'
+                    tools:text="Drink 3" />
+
+                <TextView
+                    android:id="@+id/fanta_price"
+                    style="@style/Widget.MenuItem.TextView.Info"
+                    android:paddingTop="@dimen/base_margin"
+                    android:text='@{viewModel.menuItems["fanta"].getFormattedPrice()}'
+                    tools:text="0.00" />
+
+                <View
+                    style="@style/Widget.NigeriaLunchTray.Divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fanta_price" />
+
+                <CheckBox android:id="@+id/orange_juice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:onClick='@{(view) -> viewModel.setDrink(view, "orange_juice")}'
+                    android:text='@{viewModel.menuItems["orange_juice"].name}'
+                    tools:text="Drink 4" />
+
+                <TextView
+                    android:id="@+id/orange_juice_price"
+                    style="@style/Widget.MenuItem.TextView.Info"
+                    android:paddingTop="@dimen/base_margin"
+                    android:text='@{viewModel.menuItems["orange_juice"].getFormattedPrice()}'
+                    tools:text="0.00" />
+
+                <View
+                    style="@style/Widget.NigeriaLunchTray.Divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/orange_juice_price" />
+
+                <CheckBox android:id="@+id/sprite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:onClick='@{(view) -> viewModel.setDrink(view, "sprite")}'
+                    android:text='@{viewModel.menuItems["sprite"].name}'
+                    tools:text="Drink 5" />
+
+                <TextView
+                    android:id="@+id/sprite_price"
+                    style="@style/Widget.MenuItem.TextView.Info"
+                    android:paddingTop="@dimen/base_margin"
+                    android:text='@{viewModel.menuItems["sprite"].getFormattedPrice()}'
+                    tools:text="0.00" />
+
+                <View
+                    style="@style/Widget.NigeriaLunchTray.Divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sprite_price" />
+
+                <CheckBox android:id="@+id/water"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:onClick='@{(view) -> viewModel.setDrink(view, "water")}'
+                    android:text='@{viewModel.menuItems["water"].name}'
+                    tools:text="Drink 6" />
+
+                <TextView
+                    android:id="@+id/water_price"
+                    style="@style/Widget.MenuItem.TextView.Info"
+                    android:paddingTop="@dimen/base_margin"
+                    android:text='@{viewModel.menuItems["water"].getFormattedPrice()}'
+                    tools:text="0.00" />
+
+                <View
+                    style="@style/Widget.NigeriaLunchTray.Divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/water_price" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/subtotal"
+                android:text="@{@string/subtotal(viewModel.subtotal)}"
+                style="@style/Widget.NigerianLunchTray.TextView.Subtotal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/drink_options"
+                tools:text="Subtotal 0.00"/>
+
+            <Button
+                android:id="@+id/cancel_button"
+                style="@style/Widget.Order.Button.Cancel"
+                android:onClick="@{() -> drinkMenuFragment.cancelOrder()}"
+                app:layout_constraintEnd_toStartOf="@id/next_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/next_button"/>
+
+            <Button
+                android:id="@+id/next_button"
+                style="@style/Widget.Order.Button.Next"
+                android:onClick="@{() -> drinkMenuFragment.goToNextScreen()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cancel_button"
+                app:layout_constraintTop_toBottomOf="@id/subtotal"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>

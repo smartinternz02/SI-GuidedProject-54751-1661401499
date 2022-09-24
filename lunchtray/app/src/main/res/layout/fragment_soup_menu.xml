@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_soup"
+    tools:context=".ui.order.SoupMenuFragment">
+
+    <!-- Data binding variables for OrderViewModel and SoupMenuFragment -->
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.nigerianlunchtray.model.OrderViewModel" />
+        <variable
+            name="soupMenuFragment"
+            type="com.example.nigerianlunchtray.ui.order.SoupMenuFragment" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/side_margin"
+            android:paddingEnd="@dimen/side_margin"
+            android:paddingBottom="@dimen/side_margin">
+
+            <RadioGroup
+                android:id="@+id/soup_options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RadioButton
+                    android:id="@+id/black_soup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:checked='@{viewModel.soup.equals(viewModel.menuItems["black_soup"])}'
+                    android:onClick='@{() -> viewModel.setSoup("black_soup")}'
+                    android:text='@{viewModel.menuItems["black_soup"].name}'
+                    tools:text="Soup 1"/>
+
+                <TextView
+                    android:id="@+id/black_soup_price"
+                    style="@style/Widget.MenuItem.TextView.Info"
+                    android:paddingTop="@dimen/base_margin"
+                    android:text='@{viewModel.menuItems["black_soup"].getFormattedPrice()}'
+                    tools:text="0.00"/>
+
+                <View
+                    style="@style/Widget.NigeriaLunchTray.Divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/black_soup_price"/>
+
+                <RadioButton
+                    android:id="@+id/egusi_soup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:checked='@{viewModel.soup.equals(viewModel.menuItems["egusi_soup"])}'
+                    android:onClick='@{() -> viewModel.setSoup("egusi_soup")}'
+                    android:text='@{viewModel.menuItems["egusi_soup"].name}'
+                    tools:text="Soup 2"/>
+
+                <TextView
+                    android:id="@+id/egusi_soup_price"
+                    style="@style/Widget.MenuItem.TextView.Info"
+                    android:paddingTop="@dimen/base_margin"
+                    android:text='@{viewModel.menuItems["egusi_soup"].getFormattedPrice()}'
+                    tools:text="0.00"/>
+
+                <View
+                    style="@style/Widget.NigeriaLunchTray.Divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/egusi_soup_price"/>
+
+                <RadioButton
+                    android:id="@+id/ogbono_soup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:checked='@{viewModel.soup.equals(viewModel.menuItems["ogbono_soup"])}'
+                    android:onClick='@{() -> viewModel.setSoup("ogbono_soup")}'
+                    android:text='@{viewModel.menuItems["ogbono_soup"].name}'
+                    tools:text="Soup 3"/>
+
+                <TextView
+                    android:id="@+id/ogbono_soup_price"
+                    style="@style/Widget.MenuItem.TextView.Info"
+                    android:paddingTop="@dimen/base_margin"
+                    android:text='@{viewModel.menuItems["ogbono_soup"].getFormattedPrice()}'
+                    tools:text="0.00"/>
+
+                <View
+                    style="@style/Widget.NigeriaLunchTray.Divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ogbono_soup_price"/>
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/subtotal"
+                android:text="@{@string/subtotal(viewModel.subtotal)}"
+                style="@style/Widget.NigerianLunchTray.TextView.Subtotal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/soup_options"
+                tools:text="Subtotal 0.00"/>
+
+            <Button
+                android:id="@+id/cancel_button"
+                style="@style/Widget.Order.Button.Cancel"
+                android:onClick="@{() -> soupMenuFragment.cancelOrder()}"
+                app:layout_constraintEnd_toStartOf="@id/next_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/next_button"/>
+
+            <Button
+                android:id="@+id/next_button"
+                style="@style/Widget.Order.Button.Next"
+                android:onClick="@{() -> soupMenuFragment.goToNextScreen()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cancel_button"
+                app:layout_constraintTop_toBottomOf="@id/subtotal"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

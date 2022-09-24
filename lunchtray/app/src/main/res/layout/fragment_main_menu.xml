@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_main"
+    tools:context=".ui.order.MainMenuFragment">
+
+    <!-- Data binding variables for OrderViewModel and MainMenuFragment -->
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.nigerianlunchtray.model.OrderViewModel" />
+        <variable
+            name="mainMenuFragment"
+            type="com.example.nigerianlunchtray.ui.order.MainMenuFragment" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/side_margin"
+            android:paddingEnd="@dimen/side_margin"
+            android:paddingBottom="@dimen/side_margin">
+
+            <RadioGroup
+                android:id="@+id/main_options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RadioButton
+                    android:id="@+id/eba"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:checked='@{viewModel.main.equals(viewModel.menuItems["eba"])}'
+                    android:onClick='@{() -> viewModel.setMain("eba")}'
+                    android:text='@{viewModel.menuItems["eba"].name}'
+                    tools:text="Main 1"/>
+
+                <TextView
+                    android:id="@+id/eba_price"
+                    style="@style/Widget.MenuItem.TextView.Info"
+                    android:paddingTop="@dimen/base_margin"
+                    android:text='@{viewModel.menuItems["eba"].getFormattedPrice()}'
+                    tools:text="0.00"/>
+
+                <View
+                    style="@style/Widget.NigeriaLunchTray.Divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/eba_price"/>
+
+                <RadioButton
+                    android:id="@+id/fried_rice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:checked='@{viewModel.main.equals(viewModel.menuItems["fried_rice"])}'
+                    android:onClick='@{() -> viewModel.setMain("fried_rice")}'
+                    android:text='@{viewModel.menuItems["fried_rice"].name}'
+                    tools:text="Main 2"/>
+
+                <TextView
+                    android:id="@+id/fried_rice_price"
+                    style="@style/Widget.MenuItem.TextView.Info"
+                    android:paddingTop="@dimen/base_margin"
+                    android:text='@{viewModel.menuItems["fried_rice"].getFormattedPrice()}'
+                    tools:text="0.00"/>
+
+                <View
+                    style="@style/Widget.NigeriaLunchTray.Divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fried_rice_price"/>
+
+                <RadioButton
+                    android:id="@+id/jollof_rice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:checked='@{viewModel.main.equals(viewModel.menuItems["jollof_rice"])}'
+                    android:onClick='@{() -> viewModel.setMain("jollof_rice")}'
+                    android:text='@{viewModel.menuItems["jollof_rice"].name}'
+                    tools:text="Main 3"/>
+
+                <TextView
+                    android:id="@+id/jollof_rice_price"
+                    style="@style/Widget.MenuItem.TextView.Info"
+                    android:paddingTop="@dimen/base_margin"
+                    android:text='@{viewModel.menuItems["jollof_rice"].getFormattedPrice()}'
+                    tools:text="0.00"/>
+
+                <View
+                    style="@style/Widget.NigeriaLunchTray.Divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/jollof_rice_price"/>
+
+                <RadioButton
+                    android:id="@+id/pounded_yam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:checked='@{viewModel.main.equals(viewModel.menuItems["pounded_yam"])}'
+                    android:onClick='@{() -> viewModel.setMain("pounded_yam")}'
+                    android:text='@{viewModel.menuItems["pounded_yam"].name}'
+                    tools:text="Main 4"/>
+
+                <TextView
+                    android:id="@+id/pounded_yam_price"
+                    style="@style/Widget.MenuItem.TextView.Info"
+                    android:paddingTop="@dimen/base_margin"
+                    android:text='@{viewModel.menuItems["pounded_yam"].getFormattedPrice()}'
+                    tools:text="0.00"/>
+
+                <View
+                    style="@style/Widget.NigeriaLunchTray.Divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pounded_yam_price"/>
+
+                <RadioButton
+                    android:id="@+id/rice_and_beans"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:checked='@{viewModel.main.equals(viewModel.menuItems["rice_and_beans"])}'
+                    android:onClick='@{() -> viewModel.setMain("rice_and_beans")}'
+                    android:text='@{viewModel.menuItems["rice_and_beans"].name}'
+                    tools:text="Main 5"/>
+
+                <TextView
+                    android:id="@+id/rice_and_beans_price"
+                    style="@style/Widget.MenuItem.TextView.Info"
+                    android:paddingTop="@dimen/base_margin"
+                    android:text='@{viewModel.menuItems["rice_and_beans"].getFormattedPrice()}'
+                    tools:text="0.00"/>
+
+                <View
+                    style="@style/Widget.NigeriaLunchTray.Divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rice_and_beans_price"/>
+
+                <RadioButton
+                    android:id="@+id/white_rice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:checked='@{viewModel.main.equals(viewModel.menuItems["white_rice"])}'
+                    android:onClick='@{() -> viewModel.setMain("white_rice")}'
+                    android:text='@{viewModel.menuItems["white_rice"].name}'
+                    tools:text="Main 6"/>
+
+                <TextView
+                    android:id="@+id/white_rice_price"
+                    style="@style/Widget.MenuItem.TextView.Info"
+                    android:paddingTop="@dimen/base_margin"
+                    android:text='@{viewModel.menuItems["white_rice"].getFormattedPrice()}'
+                    tools:text="0.00"/>
+
+                <View
+                    style="@style/Widget.NigeriaLunchTray.Divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/white_rice_price"/>
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/subtotal"
+                android:text="@{@string/subtotal(viewModel.subtotal)}"
+                style="@style/Widget.NigerianLunchTray.TextView.Subtotal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/main_options"
+                tools:text="Subtotal 0.00"/>
+
+            <Button
+                android:id="@+id/cancel_button"
+                style="@style/Widget.Order.Button.Cancel"
+                android:onClick="@{() -> mainMenuFragment.cancelOrder()}"
+                app:layout_constraintEnd_toStartOf="@id/next_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/next_button"/>
+
+            <Button
+                android:id="@+id/next_button"
+                style="@style/Widget.Order.Button.Next"
+                android:onClick="@{() -> mainMenuFragment.goToNextScreen()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cancel_button"
+                app:layout_constraintTop_toBottomOf="@id/subtotal"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

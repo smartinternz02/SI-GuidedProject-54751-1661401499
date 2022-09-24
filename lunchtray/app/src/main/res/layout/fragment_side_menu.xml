@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_side"
+    tools:context=".ui.order.SideMenuFragment">
+
+    <!-- Data binding variables for OrderViewModel and SideMenuFragment -->
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.nigerianlunchtray.model.OrderViewModel" />
+        <variable
+            name="sideMenuFragment"
+            type="com.example.nigerianlunchtray.ui.order.SideMenuFragment" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/side_margin"
+            android:paddingEnd="@dimen/side_margin"
+            android:paddingBottom="@dimen/side_margin">
+
+            <LinearLayout
+                android:id="@+id/side_options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <CheckBox android:id="@+id/assorted_meat_pepper_soup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:onClick='@{(view) -> viewModel.setSide(view, "assorted_meat_pepper_soup")}'
+                    android:text='@{viewModel.menuItems["assorted_meat_pepper_soup"].name}'
+                    tools:text="Side 1" />
+
+                <TextView
+                    android:id="@+id/assorted_meat_pepper_soup_price"
+                    style="@style/Widget.MenuItem.TextView.Info"
+                    android:paddingTop="@dimen/base_margin"
+                    android:text='@{viewModel.menuItems["assorted_meat_pepper_soup"].getFormattedPrice()}'
+                    tools:text="0.00" />
+
+                <View
+                    style="@style/Widget.NigeriaLunchTray.Divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/assorted_meat_pepper_soup_price" />
+
+                <CheckBox android:id="@+id/catfish_pepper_soup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:onClick='@{(view) -> viewModel.setSide(view, "catfish_pepper_soup")}'
+                    android:text='@{viewModel.menuItems["catfish_pepper_soup"].name}'
+                    tools:text="Side 2" />
+
+                <TextView
+                    android:id="@+id/catfish_pepper_soup_price"
+                    style="@style/Widget.MenuItem.TextView.Info"
+                    android:paddingTop="@dimen/base_margin"
+                    android:text='@{viewModel.menuItems["catfish_pepper_soup"].getFormattedPrice()}'
+                    tools:text="0.00" />
+
+                <View
+                    style="@style/Widget.NigeriaLunchTray.Divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/catfish_pepper_soup_price" />
+
+                <CheckBox android:id="@+id/dodo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:onClick='@{(view) -> viewModel.setSide(view, "dodo")}'
+                    android:text='@{viewModel.menuItems["dodo"].name}'
+                    tools:text="Side 3" />
+
+                <TextView
+                    android:id="@+id/dodo_price"
+                    style="@style/Widget.MenuItem.TextView.Info"
+                    android:paddingTop="@dimen/base_margin"
+                    android:text='@{viewModel.menuItems["dodo"].getFormattedPrice()}'
+                    tools:text="0.00" />
+
+                <View
+                    style="@style/Widget.NigeriaLunchTray.Divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/dodo_price" />
+
+                <CheckBox android:id="@+id/goat_meat_pepper_soup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:onClick='@{(view) -> viewModel.setSide(view, "goat_meat_pepper_soup")}'
+                    android:text='@{viewModel.menuItems["goat_meat_pepper_soup"].name}'
+                    tools:text="Side 4" />
+
+                <TextView
+                    android:id="@+id/goat_meat_pepper_soup_price"
+                    style="@style/Widget.MenuItem.TextView.Info"
+                    android:paddingTop="@dimen/base_margin"
+                    android:text='@{viewModel.menuItems["goat_meat_pepper_soup"].getFormattedPrice()}'
+                    tools:text="0.00" />
+
+                <View
+                    style="@style/Widget.NigeriaLunchTray.Divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/goat_meat_pepper_soup_price" />
+
+                <CheckBox android:id="@+id/moin_moin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:onClick='@{(view) -> viewModel.setSide(view, "moin_moin")}'
+                    android:text='@{viewModel.menuItems["moin_moin"].name}'
+                    tools:text="Side 5" />
+
+                <TextView
+                    android:id="@+id/moin_moin_price"
+                    style="@style/Widget.MenuItem.TextView.Info"
+                    android:paddingTop="@dimen/base_margin"
+                    android:text='@{viewModel.menuItems["moin_moin"].getFormattedPrice()}'
+                    tools:text="0.00" />
+
+                <View
+                    style="@style/Widget.NigeriaLunchTray.Divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/moin_moin_price" />
+
+                <CheckBox android:id="@+id/salad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:onClick='@{(view) -> viewModel.setSide(view, "salad")}'
+                    android:text='@{viewModel.menuItems["salad"].name}'
+                    tools:text="Side 6" />
+
+                <TextView
+                    android:id="@+id/salad_price"
+                    style="@style/Widget.MenuItem.TextView.Info"
+                    android:paddingTop="@dimen/base_margin"
+                    android:text='@{viewModel.menuItems["salad"].getFormattedPrice()}'
+                    tools:text="0.00" />
+
+                <View
+                    style="@style/Widget.NigeriaLunchTray.Divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/salad_price" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/subtotal"
+                android:text="@{@string/subtotal(viewModel.subtotal)}"
+                style="@style/Widget.NigerianLunchTray.TextView.Subtotal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/side_options"
+                tools:text="Subtotal 0.00"/>
+
+            <Button
+                android:id="@+id/cancel_button"
+                style="@style/Widget.Order.Button.Cancel"
+                android:onClick="@{() -> sideMenuFragment.cancelOrder()}"
+                app:layout_constraintEnd_toStartOf="@id/next_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/next_button"/>
+
+            <Button
+                android:id="@+id/next_button"
+                style="@style/Widget.Order.Button.Next"
+                android:onClick="@{() -> sideMenuFragment.goToNextScreen()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cancel_button"
+                app:layout_constraintTop_toBottomOf="@id/subtotal"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>

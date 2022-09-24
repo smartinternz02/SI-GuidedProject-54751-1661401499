@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/startOrderFragment">
+
+    <fragment
+        android:id="@+id/startOrderFragment"
+        android:name="com.example.nigerianlunchtray.ui.order.StartOrderFragment"
+        android:label="fragment_start_order"
+        tools:layout="@layout/fragment_start_order" >
+        <action
+            android:id="@+id/action_startOrderFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainMenuFragment"
+        android:name="com.example.nigerianlunchtray.ui.order.MainMenuFragment"
+        android:label="fragment_main_menu"
+        tools:layout="@layout/fragment_main_menu" >
+        <action
+            android:id="@+id/action_mainMenuFragment_to_soupMenuFragment"
+            app:destination="@id/soupMenuFragment" />
+        <action
+            android:id="@+id/action_mainMenuFragment_to_meatMenuFragment"
+            app:destination="@id/meatMenuFragment" />
+        <action
+            android:id="@+id/action_mainMenuFragment_to_startOrderFragment"
+            app:destination="@id/startOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/soupMenuFragment"
+        android:name="com.example.nigerianlunchtray.ui.order.SoupMenuFragment"
+        android:label="fragment_soup_menu"
+        tools:layout="@layout/fragment_soup_menu" >
+        <action
+            android:id="@+id/action_soupMenuFragment_to_meatMenuFragment"
+            app:destination="@id/meatMenuFragment" />
+        <action
+            android:id="@+id/action_soupMenuFragment_to_startOrderFragment"
+            app:destination="@id/startOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/meatMenuFragment"
+        android:name="com.example.nigerianlunchtray.ui.order.MeatMenuFragment"
+        android:label="fragment_meat_menu"
+        tools:layout="@layout/fragment_meat_menu" >
+        <action
+            android:id="@+id/action_meatMenuFragment_to_startOrderFragment"
+            app:destination="@id/startOrderFragment" />
+        <action
+            android:id="@+id/action_meatMenuFragment_to_sideMenuFragment"
+            app:destination="@id/sideMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sideMenuFragment"
+        android:name="com.example.nigerianlunchtray.ui.order.SideMenuFragment"
+        android:label="fragment_side_menu"
+        tools:layout="@layout/fragment_side_menu" >
+        <action
+            android:id="@+id/action_sideMenuFragment_to_drinkMenuFragment"
+            app:destination="@id/drinkMenuFragment" />
+        <action
+            android:id="@+id/action_sideMenuFragment_to_startOrderFragment"
+            app:destination="@id/startOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/drinkMenuFragment"
+        android:name="com.example.nigerianlunchtray.ui.order.DrinkMenuFragment"
+        android:label="fragment_drink_menu"
+        tools:layout="@layout/fragment_drink_menu" >
+        <action
+            android:id="@+id/action_drinkMenuFragment_to_startOrderFragment"
+            app:destination="@id/startOrderFragment" />
+        <action
+            android:id="@+id/action_drinkMenuFragment_to_checkoutFragment"
+            app:destination="@id/checkoutFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.example.nigerianlunchtray.ui.order.CheckoutFragment"
+        android:label="fragment_checkout"
+        tools:layout="@layout/fragment_checkout" >
+        <action
+            android:id="@+id/action_checkoutFragment_to_startOrderFragment"
+            app:destination="@id/startOrderFragment" />
+    </fragment>
+</navigation>
