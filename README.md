@@ -1,4 +1,4 @@
-# SI-GuidedProject-54751-1661401499
+# SI-GuidedProject
 Virtual Internship - Android Application Development Using Kotlin
 
 
